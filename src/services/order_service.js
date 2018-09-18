@@ -27,6 +27,7 @@ const place = async ctx => {
 }
 
 const list = async ctx => {
+  return await Order.query(ctx.knex)
 }
 
 module.exports = {
