@@ -22,8 +22,10 @@ const place = async ctx => {
     delivererLocationLatitude: '',
     delivererLocationLongitude: '',
   }
+  const result = await Order.query(ctx.knex).insert(order)
+  ctx.socketServer.emit('placed_order', { meta: { isTest: ctx.isTest }, data: order })
 
-  return await Order.query(ctx.knex).insert(order)
+  return result
 }
 
 const list = async ctx => {
