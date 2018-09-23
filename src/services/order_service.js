@@ -23,7 +23,8 @@ const place = async ctx => {
     delivererLocationLongitude: '',
   }
   const result = await Order.query(ctx.knex).insert(order)
-  ctx.socketServer.emit('placed_order', { meta: { isTest: ctx.isTest }, data: order })
+  
+  ctx.socketServer.emit('placed_order', { meta: { isTest: ctx.isTest }, data: result })
 
   return result
 }
