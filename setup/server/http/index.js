@@ -17,7 +17,7 @@ class HttpServer {
     })
     app.use(async (ctx, next) => {
       ctx.knex = config.getKnex(ctx.request.headers['is-test'])
-      ctx.isTest = ctx.request.headers['is-test'] === true
+      ctx.isTest = ctx.request.headers['is-test'] === 'true'
       return await next()
     })
     app.use(bodyParser())
