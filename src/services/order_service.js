@@ -15,7 +15,7 @@ const place = async ctx => {
       Number(orderPlacement.lomo) * 50 +
       Number(orderPlacement.especial) * 60 +
       Number(orderPlacement.refrescos) * 20,
-    status: 'STARTED',
+    status: 'ORDERED',
     paidOnline: false,
     customerLocationLatitude: orderPlacement.customerLocation.latitude,
     customerLocationLongitude: orderPlacement.customerLocation.longitude,
