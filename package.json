@@ -22,6 +22,7 @@
     "bluebird": "^3.5.1",
     "body": "^5.1.0",
     "chai": "^4.1.2",
+    "cross-env": "^5.2.0",
     "cucumber": "^3.1.0",
     "eureka-js-client": "^4.3.0",
     "fetch-mock": "^5.13.1",
@@ -36,14 +37,14 @@
     "koa-session": "^5.8.1",
     "mitm": "^1.3.3",
     "mocha": "^3.5.0",
+    "moment-timezone": "^0.5.21",
     "objection": "^0.8.3",
     "pg": "^7.4.3",
     "ramda": "^0.25.0",
-    "yargs": "^10.0.3",
     "socket.io": "^2.1.1",
     "thunk-redis": "^2.1.6",
     "uuid": "^3.2.1",
-    "cross-env": "^5.2.0"
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"
