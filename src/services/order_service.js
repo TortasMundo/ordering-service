@@ -1,12 +1,13 @@
 const Order = require('src/services/models/Order')
 const moment = require('moment-timezone')
+const uuid = require('uuid')
 
 const place = async ctx => {
   const orderPlacement = ctx.request.body
 
   const order = {
     customer_code: '0',
-    code: '',
+    code: uuid(),
     deliverer_id: '0',
     store_id: 1,
     jamon_quantity: orderPlacement.jamon,
