@@ -29,7 +29,7 @@ const place = async ctx => {
 
   ctx.socketServer.emit('placed_order', { meta: { isTest: ctx.isTest }, data: result })
 
-  return result
+  return order
 }
 
 const list = async ctx => {
