@@ -33,22 +33,26 @@ const place = async ctx => {
 }
 
 const list = async ctx => {
-  const tz = moment.tz.guess()
-  return await Order.query(ctx.knex).whereRaw(
-    '(?? at time zone ?)::date = (current_date at time zone ?)::date',
+  const tz = ctx.request.headers['timezone']
+  const orders = await Order.query(ctx.knex).whereRaw(
+    '(?? at time zone ?)::date = (now() at time zone ?)::date',
     ['ordered_at', tz, tz],
   )
+
+  return orders
 }
 
 const updateStatus = async ctx => {
   const request = ctx.request.body
-  return await Order.query(ctx.knex).update({
-    status: request.newStatus,
-  }).where('code', '=', request.code)
+  return await Order.query(ctx.knex)
+    .update({
+      status: request.newStatus,
+    })
+    .where('code', '=', request.code)
 }
 
 module.exports = {
   place,
   list,
-  updateStatus
+  updateStatus,
 }
