@@ -23,7 +23,7 @@ const place = async ctx => {
     paid_online: false,
     customer_location_latitude: orderPlacement.customerLocation.latitude,
     customer_location_longitude: orderPlacement.customerLocation.longitude,
-    notes: '',
+    notes: orderPlacement.notes,
   }
   const result = await Order.query(ctx.knex).insert(order)
 
