@@ -34,12 +34,11 @@ const place = async ctx => {
 
 const list = async ctx => {
   const tz = ctx.request.headers['timezone']
-  const orders = await Order.query(ctx.knex).whereRaw(
+
+  return await Order.query(ctx.knex).whereRaw(
     '(?? at time zone ?)::date = (now() at time zone ?)::date',
     ['ordered_at', tz, tz],
   )
-
-  return orders
 }
 
 const updateStatus = async ctx => {
