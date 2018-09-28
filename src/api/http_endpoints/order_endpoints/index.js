@@ -21,5 +21,15 @@ module.exports = [
         data: await orderService.list(ctx)
       }
     }
+  },
+  {
+    method: 'post',
+    path: '/api/orders/update_status',
+    action: async ctx => {
+      ctx.body = {
+        success: true,
+        data: await orderService.updateStatus(ctx)
+      }
+    }
   }
 ]

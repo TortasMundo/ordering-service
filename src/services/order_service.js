@@ -40,7 +40,15 @@ const list = async ctx => {
   )
 }
 
+const updateStatus = async ctx => {
+  const request = ctx.request.body
+  return await Order.query(ctx.knex).update({
+    status: request.newStatus,
+  }).where('code', '=', request.code)
+}
+
 module.exports = {
   place,
   list,
+  updateStatus
 }
