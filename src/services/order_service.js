@@ -38,7 +38,7 @@ const list = async ctx => {
   return await Order.query(ctx.knex).whereRaw(
     '(?? at time zone ?)::date = (now() at time zone ?)::date',
     ['ordered_at', tz, tz],
-  )
+  ).orderBy('id')
 }
 
 const updateStatus = async ctx => {
