@@ -5,10 +5,18 @@ module.exports = [
     method: 'post',
     path: '/api/orders/place',
     action: async ctx => {
-      const order = await orderService.place(ctx)
-      ctx.body = {
-        success: true,
-        data: order
+      const {jamon, lomo, especial, refrescos} = ctx.request.body
+      if (jamon === 0 && lomo === 0 && especial === 0 && refrescos === 0) {
+        ctx.body = {
+          success: false,
+          error: 'empty.order'
+        }
+      } else {
+        const order = await orderService.place(ctx)
+        ctx.body = {
+          success: true,
+          data: order
+        }
       }
     }
   },
