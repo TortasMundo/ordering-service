@@ -6,7 +6,8 @@ module.exports = [
     path: '/api/orders/place',
     action: async ctx => {
       const {jamon, lomo, especial, refrescos} = ctx.request.body
-      if (jamon === 0 && lomo === 0 && especial === 0 && refrescos === 0) {
+
+      if (jamon === '0' && lomo === '0' && especial === '0' && refrescos === '0') {
         ctx.body = {
           success: false,
           error: 'empty.order'
