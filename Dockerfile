@@ -1,4 +1,4 @@
-FROM node:carbon
+FROM node:10.12
 
 # Create app directory
 WORKDIR /var/app
