@@ -7,7 +7,7 @@ module.exports = [
     action: async ctx => {
       const {jamon, lomo, especial, refrescos} = ctx.request.body
 
-      if (jamon === '0' && lomo === '0' && especial === '0' && refrescos === '0') {
+      if (Number(jamon) === 0 && Number(lomo) === 0 && Number(especial) === 0 && Number(refrescos) === 0) {
         ctx.body = {
           success: false,
           error: 'empty.order'
