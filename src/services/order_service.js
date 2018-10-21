@@ -35,10 +35,9 @@ const place = async ctx => {
 const list = async ctx => {
   const tz = ctx.request.headers['timezone']
 
-  return await Order.query(ctx.knex).whereRaw(
-    '(?? at time zone ?)::date = (now() at time zone ?)::date',
-    ['ordered_at', tz, tz],
-  ).orderBy('id')
+  return await Order.query(ctx.knex)
+    .whereRaw('(?? at time zone ?)::date = (now() at time zone ?)::date', ['ordered_at', tz, tz])
+    .orderBy('id')
 }
 
 const updateStatus = async ctx => {
@@ -50,8 +49,21 @@ const updateStatus = async ctx => {
     .where('code', '=', request.code)
 }
 
+const updateQuantities = async ctx => {
+  const request = ctx.request.body
+  return await Order.query(ctx.knex)
+    .update({
+      jamon_quantity: request.newJamon,
+      lomo_quantity: request.newLomo,
+      especial_quantity: request.newEspecial,
+      refrescos_quantity: request.newRefrescos,
+    })
+    .where('code', '=', request.code)
+}
+
 module.exports = {
   place,
   list,
   updateStatus,
+  updateQuantities,
 }
