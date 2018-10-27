@@ -49,7 +49,7 @@ const updateStatus = async ctx => {
     .where('code', '=', request.code)
 }
 
-const updateQuantities = async ctx => {
+const update = async ctx => {
   const request = ctx.request.body
   return await Order.query(ctx.knex)
     .update({
@@ -57,6 +57,7 @@ const updateQuantities = async ctx => {
       lomo_quantity: request.newLomo,
       especial_quantity: request.newEspecial,
       refrescos_quantity: request.newRefrescos,
+      notes: request.newNotes,
     })
     .where('code', '=', request.code)
 }
@@ -65,5 +66,5 @@ module.exports = {
   place,
   list,
   updateStatus,
-  updateQuantities,
+  update,
 }

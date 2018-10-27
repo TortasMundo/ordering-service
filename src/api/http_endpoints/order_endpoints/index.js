@@ -48,11 +48,11 @@ module.exports = [
   },
   {
     method: 'post',
-    path: '/api/orders/update_quantities',
+    path: '/api/orders/update',
     action: async ctx => {
       ctx.body = {
         success: true,
-        data: await orderService.updateQuantities(ctx),
+        data: await orderService.update(ctx),
       }
     },
   },
