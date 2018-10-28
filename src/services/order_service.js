@@ -64,6 +64,7 @@ const update = async ctx => {
             total: calculateTotal(request.newJamon, request.newLomo, request.newEspecial, request.newRefrescos),
         })
         .where('code', '=', request.code)
+        .andWhere('status', '=', 'ORDERED')
 }
 
 module.exports = {
