@@ -1,0 +1,6 @@
+[
+  {
+    "name": "ordering-service",
+    "imageUri": "421154629972.dkr.ecr.us-east-2.amazonaws.com/tortasmundo/ordering-service:latest"
+  }
+]
